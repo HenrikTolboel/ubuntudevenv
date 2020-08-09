@@ -1,0 +1,26 @@
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+.idea/
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Gradle
+.gradle/
+build/
+out/
+
+# VS
+.vscode/
+.vs/
+
+# MacOS
+.DS_Store
