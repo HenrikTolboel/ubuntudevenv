@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 RUN apt-get update -y && apt-get install -y software-properties-common 
 RUN add-apt-repository ppa:git-core/ppa
-RUN apt-get update -y && apt-get install -y git zsh vim curl gnupg tree dos2unix sudo
+RUN apt-get update -y && apt-get install -y git zsh vim curl gnupg tree dos2unix sudo jq
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN apt-get install git-lfs && git lfs install
 
@@ -20,6 +20,8 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 RUN apt-get update -y && apt-get install -y docker-ce docker-ce-cli containerd.io
+
+RUN curl -L "https://github.com/docker/compose/releases/download/$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod 755 /usr/local/bin/docker-compose
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
