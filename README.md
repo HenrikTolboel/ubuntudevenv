@@ -16,4 +16,4 @@ commands can be run inside ubuntudevenv.
 
 ## Git project
 It is foreseen that the git project is extracted from outside, and volumen
-mounted to ubuntudevenv  - see ``make run`.
+mounted to ubuntudevenv  - see `make run`.
